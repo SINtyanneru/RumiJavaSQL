@@ -10,6 +10,14 @@ public class SQLValue {
 		this.value = value;
 	}
 
+	public boolean is_null() {
+		return value == null;
+	}
+
+	public Object as_object() {
+		return value;
+	}
+
 	public String as_string() {
 		return (String) value;
 	}
