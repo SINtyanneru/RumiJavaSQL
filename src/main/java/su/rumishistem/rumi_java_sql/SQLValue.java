@@ -19,7 +19,11 @@ public class SQLValue {
 	}
 
 	public String as_string() {
-		return (String) value;
+		if (value instanceof String) {
+			return (String) value;
+		} else {
+			return value.toString();
+		}
 	}
 
 	public int as_int() {
