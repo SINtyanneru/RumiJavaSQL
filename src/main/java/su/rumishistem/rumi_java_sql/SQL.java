@@ -2,10 +2,13 @@ package su.rumishistem.rumi_java_sql;
 
 import java.sql.*;
 
+/**
+ * SQLラッパー
+ */
 public class SQL {
-	private static String sql_url;
-	private static String sql_user;
-	private static String sql_password;
+	private static String sql_url = null;
+	private static String sql_user = null;
+	private static String sql_password = null;
 
 	public static void connect(String host, String port, String db, String user, String password){
 		sql_url = "jdbc:mariadb://"+host+":"+port+"/"+db+"?useServerPrepStmts=false&cachePrepStmts=false";
@@ -14,6 +17,8 @@ public class SQL {
 	}
 
 	public static SQLC new_connection() throws SQLException {
+		if (sql_url == null || sql_user == null || sql_password == null) throw new IllegalArgumentException("ホストとユーザー名とパスワードが未設定です殺すぞ");
+
 		Connection connection = (Connection) DriverManager.getConnection(sql_url, sql_user, sql_password);
 		//未コミットのトランザクションは見えなくなるよ
 		connection.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
@@ -24,6 +29,8 @@ public class SQL {
 	}
 
 	public static SQLC new_auto_commit_connection() throws SQLException {
+		if (sql_url == null || sql_user == null || sql_password == null) throw new IllegalArgumentException("ホストとユーザー名とパスワードが未設定です殺すぞ");
+
 		Connection connection = (Connection) DriverManager.getConnection(sql_url, sql_user, sql_password);
 		//未コミットのトランザクションは見えなくなるよ
 		connection.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
