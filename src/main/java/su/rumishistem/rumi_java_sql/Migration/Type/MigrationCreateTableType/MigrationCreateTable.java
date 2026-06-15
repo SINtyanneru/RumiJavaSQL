@@ -1,73 +1,13 @@
-package su.rumishistem.rumi_java_sql.Migration.Type;
+package su.rumishistem.rumi_java_sql.Migration.Type.MigrationCreateTableType;
 
 import su.rumishistem.rumi_java_sql.SQLC;
 import su.rumishistem.rumi_java_sql.Migration.SQLMigrationer;
+import su.rumishistem.rumi_java_sql.Migration.Type.MigrationProcess;
 
 /**
  * テーブル作成を行うマイグレーションです
  */
 public class MigrationCreateTable extends MigrationProcess{
-	public static class ColumnType {
-		public final Name name;
-		public final int size;
-
-		public ColumnType(Name name) {
-			this.name = name;
-			this.size = -1;
-		}
-
-
-		public ColumnType(Name name, int size) {
-			this.name = name;
-			this.size = size;
-		}
-
-		public enum Name {
-			Varchar,
-			Text,
-			Int,
-			Date,
-			DateTime
-		}
-	}
-
-	public static enum ColumnConstraints {
-		None,
-		PrimaryKey
-	}
-
-	public static class Column {
-		public final String name;
-		public final String description;
-		public final ColumnType type;
-		public final ColumnConstraints constraints;
-
-		public Column(String name, String description, ColumnType type, ColumnConstraints constraints) {
-			this.name = name;
-			this.description = description;
-			this.type = type;
-			this.constraints = constraints;
-		}
-	}
-
-	public static class NullableColumn extends Column {
-		public NullableColumn(String name, String description, ColumnType type, ColumnConstraints constraints) {
-			super(name, description, type, constraints);
-		}
-	}
-
-	public static class ReferenceColumn {
-		public final String foreign;
-		public final String reference_table;
-		public final String reference_column;
-
-		public ReferenceColumn(String foreign, String reference_table, String reference_column) {
-			this.foreign = foreign;
-			this.reference_table = reference_table;
-			this.reference_column = reference_column;
-		}
-	}
-
 	private final String sql_script;
 
 	public MigrationCreateTable(String name, Column[] column_list, ReferenceColumn[] reference_list) {
