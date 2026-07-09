@@ -56,8 +56,12 @@ public class SQLMigrationer {
 				sql.commit();
 				sql.close();
 			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(LOG_PREFIX + "ﾏｲｸﾞﾚｰｼｮﾝ失敗: " + e.getMessage());
+
 				sql.rollback();
 				sql.close();
+				System.exit(1);
 			}
 		} else {
 			sql.close();

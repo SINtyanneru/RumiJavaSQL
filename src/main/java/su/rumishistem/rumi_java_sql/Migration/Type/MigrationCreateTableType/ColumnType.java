@@ -16,9 +16,25 @@ public class ColumnType {
 	}
 
 	public enum Name {
+		//文字列型
 		Varchar,
 		Text,
+
+		//数値型
+		TinyInt,
+		SmallInt,
+		MediumInt,
 		Int,
+		BigInt,
+
+		//ブール
+		Boolean,
+
+		//バイナリ
+		Binary,
+		VarBinary,
+
+		//日時型
 		Date,
 		DateTime
 	}

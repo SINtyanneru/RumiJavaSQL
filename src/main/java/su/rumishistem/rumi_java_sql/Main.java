@@ -12,8 +12,12 @@ public class Main {
 		SQLMigrationer.add(
 			new MigrationCreateTable("TEST", new Column[]{
 				new Column("ID", "主キー", new ColumnType(ColumnType.Name.Varchar, 256), ColumnConstraints.PrimaryKey),
+				new Column("A", "あ？", new ColumnType(ColumnType.Name.Varchar, 256), ColumnConstraints.None),
+				new Column("I", "い？", new ColumnType(ColumnType.Name.Varchar, 256), ColumnConstraints.None),
 				new Column("CONTENTS", "内容物", new ColumnType(ColumnType.Name.Text), ColumnConstraints.None)
-			}, new ReferenceColumn[0])
+			},new ReferenceColumn[0], new UniqueColumn[] {
+				new UniqueColumn("unq_ai", new String[]{"A", "I"})
+			})
 		);
 
 		SQLMigrationer.migration("SQL_TEST");
