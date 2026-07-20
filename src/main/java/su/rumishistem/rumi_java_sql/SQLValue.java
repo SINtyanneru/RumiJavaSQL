@@ -39,9 +39,15 @@ public class SQLValue {
 	}
 
 	public byte[] as_byte() throws SQLException{
-		Blob blob = as_blob();
-		byte[] data = blob.getBytes(1, (int)blob.length());
-		return data;
+		if (this.value instanceof byte[]) {
+			return (byte[])this.value;
+		} else if (this.value instanceof Blob) {
+			Blob blob = as_blob();
+			byte[] data = blob.getBytes(1, (int)blob.length());
+			return data;
+		} else {
+			throw new ClassCastException("なぜかbyte[]でもBlobでもない「"+this.value.getClass().getName()+"」が来た");
+		}
 	}
 
 	public boolean as_boolean() {
