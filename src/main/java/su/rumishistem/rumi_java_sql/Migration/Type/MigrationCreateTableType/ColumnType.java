@@ -34,6 +34,9 @@ public class ColumnType {
 		Binary,
 		VarBinary,
 
+		//Blob
+		Blob,
+
 		//日時型
 		Date,
 		DateTime
