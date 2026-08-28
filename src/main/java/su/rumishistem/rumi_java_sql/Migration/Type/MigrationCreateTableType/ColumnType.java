@@ -17,6 +17,7 @@ public class ColumnType {
 
 	public enum Name {
 		//文字列型
+		Char,
 		Varchar,
 		Text,
 
