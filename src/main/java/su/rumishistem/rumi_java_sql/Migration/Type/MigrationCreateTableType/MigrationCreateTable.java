@@ -143,7 +143,7 @@ public class MigrationCreateTable extends MigrationProcess{
 			}
 		}
 
-		sb.append(") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;");
+		sb.append(") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;");
 
 		String sql_script = sb.toString();
 
