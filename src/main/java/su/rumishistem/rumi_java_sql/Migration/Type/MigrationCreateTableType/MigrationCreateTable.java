@@ -68,7 +68,7 @@ public class MigrationCreateTable extends MigrationProcess{
 		StringBuilder sb = new StringBuilder();
 		String primary_key_column_name = null;
 
-		sb.append("CREATE TABLE `"+table_name+"` (");
+		sb.append("CREATE TABLE IF NOT EXISTS `"+table_name+"` (");
 
 		for (Column col:column_list) {
 			//カラム名
