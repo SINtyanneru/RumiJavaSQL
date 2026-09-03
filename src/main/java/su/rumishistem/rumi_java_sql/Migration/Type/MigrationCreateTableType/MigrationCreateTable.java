@@ -117,6 +117,12 @@ public class MigrationCreateTable extends MigrationProcess{
 				sb.append("FOREIGN KEY (`"+ref.foreign+"`)");
 				sb.append(" ");
 				sb.append("REFERENCES `"+ref.reference_table+"` (`"+ref.reference_column+"`)");
+				sb.append(" ");
+
+				//CASCADE設定
+				sb.append("ON DELETE CASCADE");
+				sb.append(" ");
+				sb.append("ON UPDATE CASCADE");
 
 				if (i + 1 < reference_list.length) sb.append(",");
 			}
