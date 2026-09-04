@@ -3,7 +3,7 @@
 	<groupId>su.rumishistem</groupId>
 	<artifactId>rumi_java_sql</artifactId>
 	<packaging>jar</packaging>
-	<version>4.10</version>
+	<version>4.12</version>
 	<name>rumi_java_sql</name>
 	<url>http://maven.apache.org</url>
 
